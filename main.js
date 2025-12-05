@@ -54,11 +54,15 @@ botonesHeader.forEach(boton => boton.addEventListener("click",(event) =>{
         fetch(URL + i)
         .then((response) => response.json())
         .then(data => {
+
+            if(botonId === "ver-todos"){
+                mostrarPokemon(data);
+            }else{
             const tipos = data.types.map(type => type.type.name);
             if(tipos.some(tipo => tipo.includes(botonId))){
                 mostrarPokemon(data);
             }
-        })
+    }})
     }
 }))
 
